@@ -1,0 +1,23 @@
+{
+  "name": "stride",
+  "version": "1.0.0",
+  "description": "Stride Website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herbertg14/StrideWeb.git"
+  },
+  "keywords": [
+    "stride",
+    "web"
+  ],
+  "author": "Herbert Gutierrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/herbertg14/StrideWeb/issues"
+  },
+  "homepage": "https://github.com/herbertg14/StrideWeb#readme"
+}
