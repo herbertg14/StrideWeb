@@ -14,25 +14,26 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 
-app.use(express.static(process.cwd() + "/public"));
+// app.use(express.static(process.cwd() + "/public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.get("/", function(req, res){
-	// res.redirect("/login");
-	res.sendFile(path.join(__dirname + "/public/index.html"));
+var x = 10
+app.get('/', function(req,res){
+	if (x === 10){
+		console.log("hitting the index page");
+		res.sendFile(path.join(__dirname, "./index.html"));
+	}
+	else{
+		console.log("redirecting to login");
+		res.redirect("/login");
+	}
+	
 });
 
 app.get("/login", function(req,res){
-	// res.sendFile(__dirname + "/test.html");
-	res.sendFile(path.join(__dirname + "/public/login.html"));
+	res.sendFile(path.join(__dirname, "login.html"));
 });
 
-app.get("/main", function(req, res){
-	res.sendFile("index.html");
-});
-
-// var routes = require('./controllers/controller.js');
-// app.use("/", routes);
 
 app.listen(PORT, function(){
 	console.log("listening on port " + PORT);
