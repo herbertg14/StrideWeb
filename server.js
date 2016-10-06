@@ -34,7 +34,6 @@ firebase.initializeApp(config);
 /////////////////////////////////////////////////////////
 //Routes
 /////////////////////////////////////////////////////////
-var x = 10
 app.get('/', function(req,res){
 
 	firebase.auth().onAuthStateChanged(function(user) {
@@ -58,15 +57,14 @@ app.post("/login", function(req,res){
 		// Handle Errors here.
 		var errorCode = error.code;
 		var errorMessage = error.message;
-		console.log(errorCode);
-		// if (errorCode == "auth/wrong-password"){
 
-		// }
+		console.log(errorCode);
+
 		res.send("error");
 		// ...
 	})
 	.then(function(result){
-		console.log(result);
+		// console.log(result);
 		res.send(result);
 	});
 });
@@ -74,6 +72,7 @@ app.post("/login", function(req,res){
 app.get("/main", function(req,res){
 
 	var user = firebase.auth().currentUser;
+	console.log(user);
 	if (user == null){
 		res.redirect("/login");
 	}else{
