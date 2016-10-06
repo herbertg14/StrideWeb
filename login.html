@@ -1,12 +1,90 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>
-		login
-	</title>
-</head>
+<html lang="en">
+</HTML>
+    <head>
+   		<title>Welcome|Login</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+	    <link rel="stylesheet" type="text/css" href="/assets/css/sweetalert.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+
 <body>
-<h1>This is the login page</h1>
-<script src="js/test.js"></script>
+	<div class="vid-container">
+		<video class="bgvid" autoplay="autoplay" muted="muted" preload="auto" loop>
+			<source src="/assets/video/dine.mp4" type="video/mp4"> 
+		</video>
+
+		<div class="box">
+			<img id="logo" src="/assets/images/logo2.png">
+
+			<input type="text" placeholder="Email" id="signInEmail"/>
+			<input type="password" placeholder="Password" id="signInPassword"/>
+			<button type='submit' id="signInButton">Log In</button>
+
+			<p>Not a member? <a id="sign-up-a" class="modal-trigger" data-target="signup" href="#signup">Sign Up</a></p>
+		</div>
+	<!--Closes out vid-container div-->
+	</div>
+
+
+	<!-- Modal Structure for Sign Up button -->
+	<div id="signup" class="modal modal-fixed-footer">
+		<div class="modal-content">
+		<div class="row">
+		<form id = "#signUpForm" class="col s12">
+		<div class="row">
+		<div class="input-field col s6">
+		<input placeholder="First name" id="first_name" type="text" class="validate" name = "firstName">
+		<label for="first_name">First Name</label>
+		</div>
+		<div class="input-field col s6">
+		<input placeholder="Last name" id="last_name" type="text" class="validate" name = "lastName">
+		<label for="last_name">Last Name</label>
+		</div>
+		</div>
+		<div class="row">
+		<div class="input-field col s12">
+		<input placeholder="johndoe88" id="username" type="text" class="validate" name = "username">
+		<label for="username">Username</label>
+		</div>
+		</div>
+		<div class="row">
+		<div class="input-field col s12">
+		<input placeholder="Password must be at least 7 characters" id="password" type="password" class="validate" name = "password">
+		<label for="password">Password</label>
+		</div>
+		</div>
+		<div class="row">
+		<div class="input-field col s12">
+		<input placeholder="Please re-enter your password" id="reenterpassword" type="password" class="validate" name = "password">
+		<label for="reenterpassword">Re-enter Password</label>
+		</div>
+		</div>
+		<div class="row">
+		<div class="input-field col s12">
+		<input  placeholder="johndoe@web.com" id="email" type="email" class="validate" name = "email">
+		<label for="email">Email</label>
+		</div>
+		</div>
+		<button id = "signUp" class = "waves-effect waves-light btn" type="submit">Sign Up</button>
+		</form>
+		</div>
+		</div>
+
+		<div class="modal-footer">
+		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+		</div>
+	</div>
+
+
 </body>
-</html>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	<script type="text/javascript" src="assets/js/sweetalert.min.js"></script>
+	<script type="text/javascript" src="assets/js/functions.js"></script>
+
+</HTML>

@@ -1,0 +1,262 @@
+
+html{
+	overflow-y:hidden;
+}
+
+@font-face {
+	font-family: "Lobster";
+	src: url("https://fonts.googleapis.com/css?family=Lobster");
+}
+
+@font-face {
+	font-family: "Cabin";
+	src: url("https://fonts.googleapis.com/css?family=Cabin");
+}
+
+
+
+header,main,footer{
+	padding-left: 300px;
+
+}
+
+.brand-logo.center {
+	font-family: "Lobster";
+	color:#fff;
+}
+
+.nav-wrapper{
+	background-color: #76323f;
+}
+
+#toDoTab{
+	background-color: #c09f80;
+	background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+	font-family: "Cabin";
+	font-size:20px;
+}
+
+.collapsible-header{
+	background-color:rgba(38,168,156,0.3);
+}
+
+#commentBody{
+	background-color:rgba(118, 50, 63,0.8);
+}
+
+i.large.material-icons {
+	background-color: #565656;
+}
+
+.iw-title{
+	background-color: #565656;
+	font-family: "Lobster";
+}
+
+#xbutton.waves-effect.waves-light.btn.xbutton{
+	background-color: #76323f;
+}
+
+#deleteButton {
+	background-color:#76323F;
+	color:white;
+	font-family:'Lobster';
+	text-align: center;
+	font-size:15px;
+}
+
+#info-title {
+	text-align:center;
+	font-family:'Lobster';
+	font-size:20px;
+	color:white;
+	text-decoration:underline;
+	background-color:#76323F;
+	height:50px;
+	padding-top:12px;
+}
+
+#user-rest{
+	font-size:15px;
+	font-family:'Cabin';
+	line-height:.1;
+	color:white;
+}
+
+#rest-add{
+	font-size:15px;
+	font-family:"Cabin";
+	line-height:.1;
+	color:white;
+}
+
+#rest-city{
+	font-size:15px;
+	font-family:"Cabin";
+	line-height:.1;
+	color:white;
+}
+
+#rest-state{
+	font-size:15px;
+	font-family:"Cabin";
+	line-height:.1;
+	color:white;
+}
+
+#rest-num{
+	font-size:15px;
+	font-family:"Cabin";
+	line-height:.1;
+	color:white;
+}
+
+#rest-hyper{
+	font-size:15px;
+	font-family:"Cabin";
+	line-height:.1;
+	color:white;
+	margin-left:-16px;
+}
+
+#rest-hyper:hover{
+	background:none;
+}
+
+#rest-link{
+	height:10px;
+}
+
+#rest-comment {
+	font-family:"Cabin";
+	font-size:15px;
+	line-height:.1;
+	color:white;
+}
+
+#addToDo {
+	background-color:#76323F;
+}
+
+.dropdown-content li>span{
+	color:#76323F;
+}
+
+#addRestHeader {
+	font-family:'Lobster';
+	text-align:center;
+}
+
+#search-dest {
+	font-family:"Lobster";
+	text-align:center;
+}
+
+#searchButton {
+	background-color:#76323F;
+	color:white;
+}
+
+.dropdown-content li>a {
+	color:#76323f;
+}
+
+
+
+
+
+
+
+/*when on mobile screen mode*/
+@media only screen and (max-width : 1008px) {
+		header, main, footer {
+			padding-left: 0;
+	}
+}
+
+#toDoTab{
+	width: 350px;
+	transform: translate(0%);
+}
+
+#searchModal{
+	/*height: */
+	max-height: 475px !important;
+	overflow-y: hidden !important;
+}
+
+
+fixed-action-btn{
+	bottom: 45px;
+	right: 24px;
+}
+
+#googleMaps {
+    position: relative;
+		/*margin-bottom: auto;*/
+    padding-bottom: 400px; // This is the aspect ratio
+    /*height: 100% !important;*/
+    overflow: hidden;
+    width: 100%;
+		height: 100%;
+}
+
+.gm-style-iw {
+	width: 300px !important;
+	top: 15px !important;
+	left: 0px !important;
+	background-color: #CFD8DC;
+	box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+	/*border: 1px solid rgba(72, 181, 233, 0.6); */
+	border:solid;
+	border-radius: 10px 10px 10px 10px;
+}
+#iw-container {
+	margin-bottom: 10px;
+}
+/*Location title*/
+#iw-container .iw-title {
+	/*font-family: 'Open Sans Condensed', sans-serif;*/
+	font-family: 'Lobster';
+	font-size: 22px;
+	font-weight: 400;
+	padding: 10px;
+	background-color: #48b5e9;
+	color: white;
+	margin: 0;
+	border-radius: 2px 2px 0 0;
+}
+/*Location content */
+#iw-container .iw-content {
+	/*font-family: 'Open Sans Condensed', sans-serif;*/
+	font-family:"Cabin";
+	font-size: 13px;
+	background-color:#CFD8DC;
+	line-height: 18px;
+	font-weight: 400;
+	margin-right: 1px;
+	padding: 15px 5px 20px 15px;
+	max-height: 250px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.iw-content img {
+	float: right;
+	margin: 0 70px 5px 10px;
+}
+.iw-subTitle {
+	font-size: 16px;
+	font-weight: 700;
+	padding: 5px 0;
+}
+.iw-bottom-gradient {
+	position: absolute;
+	width: 326px;
+	height: 25px;
+	bottom: 10px;
+	right: 18px;
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
