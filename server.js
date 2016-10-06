@@ -39,23 +39,11 @@ app.get('/', function(req,res){
 
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
-			console.log(user);
-			console.log("redirecting to main page");
 			res.redirect("/main");
 		} else {
-			console.log(user);
-			console.log("redirecting to login");
 			res.redirect("/login");
 		}
 	});
-	// if (x === 10){
-	// 	console.log("redirecting to main page");
-	// 	res.redirect("/main");
-	// }
-	// else{
-	// 	console.log("redirecting to login");
-	// 	res.redirect("/login");
-	// }
 });
 
 app.get("/login", function(req,res){
@@ -71,7 +59,9 @@ app.post("/login", function(req,res){
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		console.log(errorCode);
-		console.log(errorMessage);
+		// if (errorCode == "auth/wrong-password"){
+
+		// }
 		res.send("error");
 		// ...
 	})
@@ -79,12 +69,16 @@ app.post("/login", function(req,res){
 		console.log(result);
 		res.send(result);
 	});
-	// console.log(req.body);
-	// res.send("password");
 });
 
 app.get("/main", function(req,res){
-	res.sendFile(path.join(__dirname, "./index.html"));
+
+	var user = firebase.auth().currentUser;
+	if (user == null){
+		res.redirect("/login");
+	}else{
+		res.sendFile(path.join(__dirname, "./index.html"));
+	}	
 });
 
 
