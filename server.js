@@ -3,6 +3,7 @@ var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var path = require("path");
 var methodOverride = require('method-override');
+var firebase = require('firebase');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -16,20 +17,45 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
-
 // app.use(express.static(process.cwd() + "/public"));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// firebase
+var config = {
+apiKey: "AIzaSyBVypMWRukHTUVkmzKi-ALWVgkZN18mi8w",
+authDomain: "stride-bc2f4.firebaseapp.com",
+databaseURL: "https://stride-bc2f4.firebaseio.com",
+storageBucket: "stride-bc2f4.appspot.com"
+};
+
+firebase.initializeApp(config);
+
+
+/////////////////////////////////////////////////////////
+//Routes
+/////////////////////////////////////////////////////////
 var x = 10
 app.get('/', function(req,res){
-	if (x === 10){
-		console.log("redirecting to main page");
-		res.redirect("/main");
-	}
-	else{
-		console.log("redirecting to login");
-		res.redirect("/login");
-	}
+
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+			console.log(user);
+			console.log("redirecting to main page");
+			res.redirect("/main");
+		} else {
+			console.log(user);
+			console.log("redirecting to login");
+			res.redirect("/login");
+		}
+	});
+	// if (x === 10){
+	// 	console.log("redirecting to main page");
+	// 	res.redirect("/main");
+	// }
+	// else{
+	// 	console.log("redirecting to login");
+	// 	res.redirect("/login");
+	// }
 });
 
 app.get("/login", function(req,res){
@@ -37,14 +63,32 @@ app.get("/login", function(req,res){
 });
 
 app.post("/login", function(req,res){
-	console.log(req.body);
-	res.send("password");
+	var email = req.body.email;
+	var password = req.body.password;
+	firebase.auth().signInWithEmailAndPassword(email, password)
+	.catch(function(error) {
+		// Handle Errors here.
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		console.log(errorCode);
+		console.log(errorMessage);
+		res.send("error");
+		// ...
+	})
+	.then(function(result){
+		console.log(result);
+		res.send(result);
+	});
+	// console.log(req.body);
+	// res.send("password");
 });
 
 app.get("/main", function(req,res){
 	res.sendFile(path.join(__dirname, "./index.html"));
 });
 
+
+// Initialize
 app.listen(PORT, function(){
 	console.log("listening on port " + PORT);
 });

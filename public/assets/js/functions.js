@@ -50,11 +50,12 @@ $(document).ready(function(){
 
     $.post(currentURL + '/login', userInfo)
       .done(function(data){
-        if (data == "userName" || data == "password"){
+        if (data == "error"){
           sweetAlert("Oops...", "Wrong username or password!", "error");
         }
         else {
-          window.location.href = "/mylist";
+          console.log(data);
+          // window.location.href = "/main";
         }
       });
   });
